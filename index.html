@@ -265,18 +265,6 @@
       font-weight: 700;
     }
 
-    .notes {
-      margin-top: 28px;
-      padding: 20px 22px;
-      border-left: 5px solid var(--green);
-      border-radius: 8px 16px 16px 8px;
-      background: var(--card);
-      color: var(--muted);
-    }
-
-    .notes p { margin: 0; }
-    .notes p + p { margin-top: 8px; }
-
     footer {
       margin-top: 24px;
       color: var(--muted);
@@ -360,7 +348,7 @@
             <tr><td class="date">7/21～7/24</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>1年目限定・器材お楽しみ交換券</td></tr>
             <tr><td class="date">7/21～7/30</td><td class="condition"><span class="tag tag-blue">甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
             <tr><td class="date" data-date-key="summer">7/21～8/31</td><td class="condition"><span class="tag tag-blue">夏休み中の青マス</span></td><td data-event-details="training"></td></tr>
-            <tr><td class="date">夏大会終了後～秋の県大会組み合わせ抽選前日</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage"></td></tr>
+            <tr><td class="date">3年生引退後～9/7</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage"></td></tr>
             <tr><td class="date" data-date-key="summer-special">8/21</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>夏大会敗退後、3～4マスが特訓マスまたは緑マスに変化（キャラクターマスは変化しない）</td></tr>
             <tr><td class="date">8/27</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world"></td></tr>
             <tr><td class="date">9/6</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world-result"></td></tr>
@@ -392,7 +380,7 @@
             <tr><td class="date">6/26～7/2</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
             <tr><td class="date">7/21～7/30</td><td class="condition"><span class="tag tag-blue">甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
             <tr><td class="date" data-date-key="summer">7/21～8/31</td><td class="condition"><span class="tag tag-blue">夏休み中の青マス</span></td><td data-event-details="training"></td></tr>
-            <tr><td class="date">夏大会終了後～秋の県大会組み合わせ抽選前日</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage"></td></tr>
+            <tr><td class="date">3年生引退後～9/7</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage"></td></tr>
             <tr><td class="date" data-date-key="summer-special">8/21</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>夏大会敗退後、3～4マスが特訓マスまたは緑マスに変化（キャラクターマスは変化しない）</td></tr>
             <tr><td class="date">8/27</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world"></td></tr>
             <tr><td class="date">9/6</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world-result"></td></tr>
@@ -425,7 +413,7 @@
             <tr><td class="date">6/26～7/2</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
             <tr><td class="date">7/21～7/30</td><td class="condition"><span class="tag tag-blue">甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
             <tr><td class="date" data-date-key="summer-third">7/21～8/31</td><td class="condition"><span class="tag tag-blue">夏休み中の青マス</span></td><td data-event-details="training" data-continuation-note="true"></td></tr>
-            <tr><td class="date">夏大会終了後～秋の県大会組み合わせ抽選前日</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage" data-continuation-note="true"></td></tr>
+            <tr><td class="date">3年生引退後～9/7</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage" data-continuation-note="true"></td></tr>
             <tr><td class="date" data-date-key="summer-special">8/21</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>夏大会敗退後、通常モードへ継続した場合に3～4マスが特訓マスまたは緑マスに変化（キャラクターマスは変化しない）</td></tr>
             <tr><td class="date">8/27</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world" data-continuation-note="true"></td></tr>
             <tr><td class="date">9/6</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world-result" data-continuation-note="true"></td></tr>
@@ -459,14 +447,6 @@
         </table>
       </div>
     </section>
-
-    <aside class="notes" aria-label="補足">
-      <p>同じ期間に複数の条件が重なる場合、青マスでは該当イベントのいずれかが抽選されます。特に7/21～7/30は、インタビューとトレーニングルームが競合します。</p>
-      <p>引退した先輩との紅白戦は、地方大会敗退後・甲子園優勝後のどちらでも確認されています。開始日はその年の最後の夏大会が終わって3年生が引退した日によって変わります。</p>
-      <p>休暇期間と夏大会敗退後の特訓日は、選択した都道府県に応じて自動的に切り替わります。</p>
-      <p>冬休みのトレーニングルーム候補期間は、年ごとの重複を避けるため「12月分」と翌年の「1月分」に分けて掲載しています。</p>
-      <p>トレーニングルームはパワプロ2026 Ver.1.10のプレイヤー検証に基づく新イベントです。特殊能力の付与率など、公表・検証されていない数値は推測で補っていません。</p>
-    </aside>
 
     <footer>
       参考：<a href="https://saiseikojo.com/eikan2019kouryaku-1/" target="_blank" rel="noreferrer">年間重要イベント</a>／<a href="https://www.price-shopping.com/entry/post-28815/" target="_blank" rel="noreferrer">甲子園インタビュー取得条件</a>／<a href="https://nijiholo5koshien.com/eikan-nain2026-2027-event-list/" target="_blank" rel="noreferrer">2026イベント・トレーニングルーム効果</a>／<a href="https://nijiholo5koshien.com/eikan-nain2026-2027-kohakusen/" target="_blank" rel="noreferrer">引退した先輩との紅白戦</a>／<a href="https://nijiholo5koshien.com/eikan-nain2026-2027-sotsugyosei-kasenjiki/" target="_blank" rel="noreferrer">卒業生OBイベント効果</a>／<a href="https://www.price-shopping.com/entry/post-19508/" target="_blank" rel="noreferrer">高校日本代表の選出・成長条件</a>／<a href="https://game8.jp/eikan-nine/628904" target="_blank" rel="noreferrer">特別指導の赤特消去条件</a>（2026年8月31日確認）
@@ -646,7 +626,7 @@
       interviewSummer: '<strong>夏の地方大会で優勝し、夏の甲子園出場が決まった後</strong>に、この期間内の青マスへ止まると低確率で発生。出場決定前および敗退後は対象外。',
       interviewSpring: '<strong>選抜（春の甲子園）への出場が決まった後</strong>に、この期間内の青マスへ止まると低確率で発生。出場校に選ばれなかった年は発生しない。',
       training: '<strong>選択県の夏・冬・春休み期間中</strong>に青マスへ止まると抽選候補。大会出場・敗退は不要。<span class="caution">休暇全日での発生は未検証</span>で、青マスに止まっても必ず起きるわけではない。',
-      'retired-scrimmage': '<strong>最後の夏大会が終わり、3年生が引退した後</strong>から秋の県大会組み合わせ抽選前日までに青マスへ止まると抽選候補。地方大会敗退後・甲子園優勝後のどちらでも発生確認済み。',
+      'retired-scrimmage': '<strong>最後の夏大会が終わり、3年生が引退した後</strong>から9/7までに青マスへ止まると抽選候補。地方大会敗退後・甲子園優勝後のどちらでも発生確認済み。',
       graduate: '<strong>過年度にプロ野球選手として卒業したOBがいる</strong>状態で、この期間内の青マスへ止まると低確率で発生。春の甲子園出場決定済みでも大会滞在前なら候補だが、甲子園滞在中は対象外。',
       ticket: '<strong>1年目限定。</strong>この期間内の日付マスへちょうど止まる（マス色不問）。',
       summerLoss: '<strong>夏の地方大会または夏の甲子園ですでに敗退している</strong>状態で、この地域別日付のマスへちょうど止まる。通過した場合は発生しない。',
