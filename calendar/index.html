@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="パワプロ2026-2027 栄冠ナインを2026年の開始から4年目の入学式まで進める際に、特定の日付・期間に止まることで発生する育成イベント一覧。">
+  <title>栄冠ナイン2026｜4年目の入学式までの育成イベント</title>
+  <link rel="stylesheet" href="../assets/site-nav.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17211b;
+      --muted: #5d6961;
+      --paper: #f4f1e8;
+      --card: #fffdf7;
+      --line: #d7d2c4;
+      --green: #176b45;
+      --green-soft: #e3f2e9;
+      --blue: #175f8f;
+      --blue-soft: #e5f1f8;
+      --blue-period: #edf7fd;
+      --other-period: #fffaf0;
+      --gray-soft: #eeece5;
+      --gold: #9a6812;
+      --shadow: 0 14px 36px rgb(34 48 39 / 10%);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgb(23 107 69 / 9%), transparent 28rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.7;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+
+    header {
+      margin-bottom: 28px;
+      padding: 34px clamp(22px, 5vw, 52px);
+      border: 1px solid rgb(23 107 69 / 18%);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #fffdf7 0%, #edf7f0 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+      color: var(--green);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 14px 0 0;
+      color: var(--muted);
+    }
+
+    .prefecture-picker {
+      display: grid;
+      grid-template-columns: minmax(180px, 260px) 1fr;
+      gap: 14px 20px;
+      align-items: end;
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 1px solid rgb(23 107 69 / 16%);
+    }
+
+    .prefecture-picker label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    select {
+      width: 100%;
+      min-height: 46px;
+      padding: 9px 38px 9px 13px;
+      border: 1px solid #aabcb0;
+      border-radius: 11px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    select:focus {
+      outline: 3px solid rgb(23 107 69 / 18%);
+      border-color: var(--green);
+    }
+
+    .region-summary {
+      margin: 0;
+      padding: 10px 13px;
+      border-radius: 11px;
+      background: rgb(255 255 255 / 70%);
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 32px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .tag-blue { background: var(--blue-soft); color: var(--blue); }
+    .tag-white { background: #fff; color: #4f5b53; border: 1px solid var(--line); }
+    .tag-stop { background: #f7ead1; color: var(--gold); }
+
+    .period-key {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 32px;
+      padding: 4px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+
+    .period-key::before {
+      width: 14px;
+      height: 14px;
+      border: 1px solid rgb(23 95 143 / 20%);
+      border-radius: 4px;
+      background: var(--other-period);
+      content: '';
+    }
+
+    .period-key-blue::before { background: var(--blue-period); }
+
+    section {
+      margin-top: 26px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, var(--green-soft), transparent 72%);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .year-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .95rem;
+    }
+
+    th, td {
+      padding: 15px 18px;
+      border-bottom: 1px solid #e6e1d5;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f9f7f0;
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    tbody tr.blue-priority td { background: var(--blue-period); }
+    tbody tr.other-period td { background: var(--other-period); }
+    tbody tr.blue-priority:hover td { background: #e0f1fb; }
+    tbody tr.other-period:hover td { background: #fff4dd; }
+
+    details { margin-top: 5px; }
+
+    summary {
+      color: var(--green);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .ability-list {
+      margin: 8px 0 0;
+      padding-left: 1.25rem;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .ability-list li + li { margin-top: 5px; }
+
+    .ability-list strong { color: var(--ink); }
+
+    .date {
+      width: 190px;
+      color: var(--green);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .condition { width: 275px; }
+
+    .condition-text {
+      display: block;
+      margin-top: 7px;
+      color: var(--ink);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .condition-text .caution {
+      color: #9a5a12;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: .8rem;
+      text-align: center;
+    }
+
+    a { color: var(--green); }
+
+    @media (max-width: 680px) {
+      main { width: min(100% - 20px, 1120px); padding-top: 20px; }
+      header { padding: 24px 20px; border-radius: 18px; }
+      .prefecture-picker { grid-template-columns: 1fr; align-items: stretch; }
+      section { border-radius: 16px; }
+      .section-heading { display: block; padding: 18px; }
+      .year-note { margin-top: 3px; }
+      th, td { padding: 13px 14px; }
+      .date { width: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="資料ナビゲーション">
+    <a class="site-brand" href="../">EIKAN HUB</a>
+    <div class="site-links"><a class="is-current" href="./">カレンダー</a><a href="../world-team/">日本代表投手</a></div>
+  </nav>
+  <main>
+    <header>
+      <p class="eyebrow">Powerful Pro Baseball 2026–2027</p>
+      <h1>栄冠ナイン 4年目の入学式までの育成イベント</h1>
+      <p class="lead">2026年の3年モード開始から、通常モードへ継続して2029年4月8日の入学式を迎えるまでに、特定の日付または期間に止まることで発生する可能性がある育成イベントを掲載しています。</p>
+      <div class="prefecture-picker">
+        <div>
+          <label for="prefecture">都道府県を選択</label>
+          <select id="prefecture">
+            <optgroup label="北海道">
+              <option>北海道</option>
+            </optgroup>
+            <optgroup label="東北">
+              <option>青森</option><option>岩手</option><option>宮城</option><option>秋田</option><option>山形</option><option>福島</option>
+            </optgroup>
+            <optgroup label="関東">
+              <option>茨城</option><option>栃木</option><option>群馬</option><option>埼玉</option><option>千葉</option><option selected>東京</option><option>神奈川</option>
+            </optgroup>
+            <optgroup label="中部">
+              <option>新潟</option><option>富山</option><option>石川</option><option>福井</option><option>山梨</option><option>長野</option><option>岐阜</option><option>静岡</option><option>愛知</option>
+            </optgroup>
+            <optgroup label="近畿">
+              <option>三重</option><option>滋賀</option><option>京都</option><option>大阪</option><option>兵庫</option><option>奈良</option><option>和歌山</option>
+            </optgroup>
+            <optgroup label="中国">
+              <option>鳥取</option><option>島根</option><option>岡山</option><option>広島</option><option>山口</option>
+            </optgroup>
+            <optgroup label="四国">
+              <option>徳島</option><option>香川</option><option>愛媛</option><option>高知</option>
+            </optgroup>
+            <optgroup label="九州・沖縄">
+              <option>福岡</option><option>佐賀</option><option>長崎</option><option>熊本</option><option>大分</option><option>宮崎</option><option>鹿児島</option><option>沖縄</option>
+            </optgroup>
+          </select>
+        </div>
+        <p class="region-summary" id="region-summary" aria-live="polite"></p>
+      </div>
+    </header>
+
+    <div class="legend" aria-label="条件の凡例">
+      <span class="tag tag-blue">青マス：ランダム発生</span>
+      <span class="tag tag-white">白マス：ランダム発生</span>
+      <span class="tag tag-stop">日付条件：停止または到達</span>
+      <span class="period-key period-key-blue">水色背景：青マスを狙う時期</span>
+      <span class="period-key">薄黄背景：それ以外</span>
+    </div>
+
+    <section aria-labelledby="year-2026">
+      <div class="section-heading">
+        <h2 id="year-2026">2026年・1年目</h2>
+        <p class="year-note">4月8日開始</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日付</th><th>条件</th><th>発生候補</th></tr></thead>
+          <tbody>
+            <tr><td class="date">6/11～6/17</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">6/26～7/2</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
+            <tr><td class="date">7/21～7/24</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>1年目限定・器材お楽しみ交換券</td></tr>
+            <tr><td class="date">7/21～7/30</td><td class="condition"><span class="tag tag-blue">甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
+            <tr><td class="date" data-date-key="summer">7/21～8/31</td><td class="condition"><span class="tag tag-blue">夏休み中の青マス</span></td><td data-event-details="training"></td></tr>
+            <tr><td class="date">3年生引退後～9/7</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage"></td></tr>
+            <tr><td class="date" data-date-key="summer-special">8/21</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>夏大会敗退後、3～4マスが特訓マスまたは緑マスに変化（キャラクターマスは変化しない）</td></tr>
+            <tr><td class="date">8/27</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world"></td></tr>
+            <tr><td class="date">9/8～9/14</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
+            <tr><td class="date">11/18～11/24</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">12/24</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>全員の体力アップ＋数人のテンションアップ、全員の練習効率大アップ＋数人のテンションアップ、3～4マスが特訓マスに変化、のいずれか</td></tr>
+            <tr><td class="date" data-date-key="winter">12/25～翌年1/7</td><td class="condition"><span class="tag tag-blue">冬休み中の青マス</span></td><td data-event-details="training"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="year-2027">
+      <div class="section-heading">
+        <h2 id="year-2027">2027年・2年目</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日付</th><th>条件</th><th>発生候補</th></tr></thead>
+          <tbody>
+            <tr><td class="date">2/1～2/10</td><td class="condition"><span class="tag tag-blue">春甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
+            <tr><td class="date">2/18～2/24</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">2/28</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>3～4マスが特訓マスに変化（キャラクターマスは変化しない）</td></tr>
+            <tr><td class="date">3/8～3/31</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="graduate"></td></tr>
+            <tr><td class="date">3/25～4/7</td><td class="condition"><span class="tag tag-blue">春休み中の青マス</span></td><td data-event-details="training"></td></tr>
+            <tr><td class="date">4/1</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>新2・3年生の練習効率小アップ</td></tr>
+            <tr><td class="date">6/11～6/17</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">6/26～7/2</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
+            <tr><td class="date">7/21～7/30</td><td class="condition"><span class="tag tag-blue">甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
+            <tr><td class="date" data-date-key="summer">7/21～8/31</td><td class="condition"><span class="tag tag-blue">夏休み中の青マス</span></td><td data-event-details="training"></td></tr>
+            <tr><td class="date">3年生引退後～9/7</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage"></td></tr>
+            <tr><td class="date" data-date-key="summer-special">8/21</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>夏大会敗退後、3～4マスが特訓マスまたは緑マスに変化（キャラクターマスは変化しない）</td></tr>
+            <tr><td class="date">8/27</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world"></td></tr>
+            <tr><td class="date">9/8～9/14</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
+            <tr><td class="date">11/18～11/24</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">12/24</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>全員の体力アップ＋数人のテンションアップ、全員の練習効率大アップ＋数人のテンションアップ、3～4マスが特訓マスに変化、のいずれか</td></tr>
+            <tr><td class="date" data-date-key="winter">12/25～翌年1/7</td><td class="condition"><span class="tag tag-blue">冬休み中の青マス</span></td><td data-event-details="training"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="year-2028">
+      <div class="section-heading">
+        <h2 id="year-2028">2028年・3年目</h2>
+        <p class="year-note">夏の甲子園で3年モード終了後、通常モードへ継続</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日付</th><th>条件</th><th>発生候補</th></tr></thead>
+          <tbody>
+            <tr><td class="date">2/1～2/10</td><td class="condition"><span class="tag tag-blue">春甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
+            <tr><td class="date">2/18～2/24</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">2/29</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>3～4マスが特訓マスに変化（キャラクターマスは変化しない）</td></tr>
+            <tr><td class="date">3/8～3/31</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="graduate"></td></tr>
+            <tr><td class="date">3/25～4/7</td><td class="condition"><span class="tag tag-blue">春休み中の青マス</span></td><td data-event-details="training"></td></tr>
+            <tr><td class="date">4/1</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>新2・3年生の練習効率小アップ</td></tr>
+            <tr><td class="date">6/11～6/17</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">6/26～7/2</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
+            <tr><td class="date">7/21～7/30</td><td class="condition"><span class="tag tag-blue">甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
+            <tr><td class="date" data-date-key="summer-third">7/21～8/31</td><td class="condition"><span class="tag tag-blue">夏休み中の青マス</span></td><td data-event-details="training" data-continuation-note="true"></td></tr>
+            <tr><td class="date">3年生引退後～9/7</td><td class="condition"><span class="tag tag-blue">3年生引退後の青マス</span></td><td data-event-details="retired-scrimmage" data-continuation-note="true"></td></tr>
+            <tr><td class="date" data-date-key="summer-special">8/21</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>夏大会敗退後、通常モードへ継続した場合に3～4マスが特訓マスまたは緑マスに変化（キャラクターマスは変化しない）</td></tr>
+            <tr><td class="date">8/27</td><td class="condition"><span class="tag tag-stop">日付到達</span></td><td data-event-details="world" data-continuation-note="true"></td></tr>
+            <tr><td class="date">9/8～9/14</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="special"></td></tr>
+            <tr><td class="date">11/18～11/24</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">12/24</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>全員の体力アップ＋数人のテンションアップ、全員の練習効率大アップ＋数人のテンションアップ、3～4マスが特訓マスに変化、のいずれか</td></tr>
+            <tr><td class="date" data-date-key="winter">12/25～翌年1/7</td><td class="condition"><span class="tag tag-blue">冬休み中の青マス</span></td><td data-event-details="training"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="year-2029">
+      <div class="section-heading">
+        <h2 id="year-2029">2029年・4年目</h2>
+        <p class="year-note">4月8日の入学式まで</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日付</th><th>条件</th><th>発生候補</th></tr></thead>
+          <tbody>
+            <tr><td class="date">2/1～2/10</td><td class="condition"><span class="tag tag-blue">春甲子園出場決定後の青マス</span></td><td data-event-details="interview"></td></tr>
+            <tr><td class="date">2/18～2/24</td><td class="condition"><span class="tag tag-white">白マス</span></td><td>練習効率アップを選択できるイベント</td></tr>
+            <tr><td class="date">2/28</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>3～4マスが特訓マスに変化（キャラクターマスは変化しない）</td></tr>
+            <tr><td class="date">3/8～3/31</td><td class="condition"><span class="tag tag-blue">青マス</span></td><td data-event-details="graduate"></td></tr>
+            <tr><td class="date">3/25～4/7</td><td class="condition"><span class="tag tag-blue">春休み中の青マス</span></td><td data-event-details="training"></td></tr>
+            <tr><td class="date">4/1</td><td class="condition"><span class="tag tag-stop">停止</span></td><td>新2・3年生の練習効率小アップ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      参考：<a href="https://saiseikojo.com/eikan2019kouryaku-1/" target="_blank" rel="noreferrer">年間重要イベント</a>／<a href="https://www.price-shopping.com/entry/post-28815/" target="_blank" rel="noreferrer">甲子園インタビュー取得条件</a>／<a href="https://nijiholo5koshien.com/eikan-nain2026-2027-event-list/" target="_blank" rel="noreferrer">2026イベント・トレーニングルーム効果</a>／<a href="https://nijiholo5koshien.com/eikan-nain2026-2027-kohakusen/" target="_blank" rel="noreferrer">引退した先輩との紅白戦</a>／<a href="https://nijiholo5koshien.com/eikan-nain2026-2027-sotsugyosei-kasenjiki/" target="_blank" rel="noreferrer">卒業生OBイベント効果</a>／<a href="https://www.price-shopping.com/entry/post-19508/" target="_blank" rel="noreferrer">高校日本代表の選出・成長条件</a>／<a href="https://game8.jp/eikan-nine/628904" target="_blank" rel="noreferrer">特別指導の赤特消去条件</a>（2026年8月31日確認）
+    </footer>
+  </main>
+  <script>
+    const prefectureSelect = document.querySelector('#prefecture');
+    const regionSummary = document.querySelector('#region-summary');
+
+    const patterns = {
+      standard: {
+        label: '通常日程',
+        summer: '7/21～8/31',
+        summerThird: '7/21～8/31',
+        winterStart: '12/25',
+        winterEnd: '1/7',
+        summerSpecial: '8/21'
+      },
+      aomoriAkita: {
+        label: '青森・秋田日程',
+        summer: '7/21～8/25',
+        summerThird: '7/21～8/25',
+        winterStart: '12/22',
+        winterEnd: '1/14',
+        summerSpecial: '8/15'
+      },
+      northern: {
+        label: '北日本・長野日程',
+        summer: '7/26～8/20',
+        summerThird: '7/26～8/20',
+        winterStart: '12/26',
+        winterEnd: '1/14',
+        summerSpecial: '8/10'
+      }
+    };
+
+    const aomoriAkita = new Set(['青森', '秋田']);
+    const northern = new Set(['北海道', '岩手', '宮城', '山形', '福島', '長野']);
+
+    const eventDetails = {
+      special: `
+        <strong>特別指導</strong>：選択した分野の経験値を獲得し、対応する赤特消去・ランク改善を抽選。
+        <details>
+          <summary>選択肢・経験値・消せる赤特を見る</summary>
+          <ul class="ability-list">
+            <li><strong>打撃を指導：</strong>全員のミート・パワー経験値が小アップ。「三振」を消去</li>
+            <li><strong>守備を指導：</strong>全員の守備力・捕球経験値が小アップ。「エラー」を消去／送球F以下を1段階アップ</li>
+            <li><strong>走塁を指導：</strong>全員の走力経験値が小アップ。走塁F以下・盗塁F以下を1段階アップ</li>
+            <li><strong>投球を指導：</strong>全員のコントロール経験値が小アップ。「寸前」「一発」「四球」「スロースターター」「力配分」「短気」「抜け球」「軽い球」「乱調」を消去</li>
+          </ul>
+        </details>`,
+      interview: `
+        <strong>甲子園出場インタビュー</strong>：選択分野の経験値は確定で上昇。青特は、下記の前提能力を満たす選手ごとに抽選（1選手につき最大1つ）。
+        <details>
+          <summary>選択肢・前提条件・取得率を見る</summary>
+          <ul class="ability-list">
+            <li><strong>攻撃力：</strong>全員のミート・パワー経験値が中アップ
+              <ul>
+                <li>ミートB以上：アベレージヒッター（10％）</li>
+                <li>パワーB以上：パワーヒッター、プルヒッター（各10％）</li>
+                <li>ミートC以上かつパワーC以上：広角打法（10％）</li>
+                <li>ミートC以上：流し打ち、固め打ち（各10％）</li>
+                <li>パワーC以上：弾道＋1（10％）</li>
+              </ul>
+            </li>
+            <li><strong>機動力：</strong>全員の走力経験値が中アップ
+              <ul>
+                <li>走力C以上：走塁＋1、盗塁＋1、内野安打○、ヘッドスライディング、かく乱、プレッシャーラン（各10％）</li>
+                <li>「バント○」取得済み：バント職人（20％）</li>
+                <li>パワーE以下：バント○（5％）</li>
+              </ul>
+            </li>
+            <li><strong>守備力：</strong>全員の肩力・守備力・捕球経験値が中アップ
+              <ul>
+                <li>肩力B以上：レーザービーム（10％）</li>
+                <li>守備力B以上または捕球C以上：守備職人（10％）</li>
+                <li>守備力C以上または肩力C以上：送球＋1（10％）</li>
+                <li>捕手かつ守備力E以上：ホーム死守（10％）</li>
+              </ul>
+            </li>
+            <li><strong>投手力：</strong>投手全員の球速・コントロール・スタミナ・変化球経験値が中アップ
+              <ul>
+                <li>球速150km/h以上：ジャイロボール、重い球（各10％）</li>
+                <li>球速140km/h以上：ノビ＋1、球持ち○（各10％）</li>
+                <li>コントロールC以上：低め○（10％）</li>
+                <li>コントロールE以下：逃げ球（10％）</li>
+                <li>スタミナC以上：尻上がり（10％）</li>
+                <li>1方向の変化量が4以上：キレ○（10％）</li>
+                <li>変化球種が3以上：リリース○（10％）</li>
+              </ul>
+            </li>
+            <li><strong>選手たちの努力：</strong>青特抽選なし。全員の信頼度が中アップし、テンション「ダメダメ」の選手が「ふつう」になる</li>
+          </ul>
+        </details>`,
+      training: `
+        <strong>トレーニングルーム</strong>：4択から1つを選び、経験値上昇と特殊能力取得・赤特改善が発生。
+        <details>
+          <summary>選択肢と効果を見る</summary>
+          <ul class="ability-list">
+            <li><strong>筋トレ中心にトレーニング：</strong>全員のパワー・肩力経験値が小アップ、投手全員の球速経験値が中アップ、投手が「重い球」を取得</li>
+            <li><strong>敏捷性中心にトレーニング：</strong>全員の走力・守備力経験値が中アップ、投手が「クイック＋1」を取得</li>
+            <li><strong>柔軟性中心にトレーニング：</strong>全員のパワー経験値が少しアップ、投手全員の球速・スタミナ経験値がアップ、「ケガしにくさ＋1」を取得</li>
+            <li><strong>ビデオで研究：</strong>数人の学力がかなりアップ、数人の疲れが少し回復。選手1人に次のいずれか：
+              <ul>
+                <li>投手：対ピンチ＋1、対左打者＋1、打たれ強さ＋1、ノビ＋1、クイック＋1、「乱調」消去、「抜け球」消去</li>
+                <li>野手：チャンス＋1、対左投手＋1、盗塁＋1、走塁＋1、送球＋1、ケガしにくさ＋1、「エラー」消去、「併殺」消去</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="ability-list"><strong>確認済み発生日：</strong>7/23、7/24、1/7、秋田の1/14、4/6。いずれもその地域の夏・冬・春休み中。表の休暇全期間は、この一致から置いた発生候補期間であり、全日を個別確認したものではありません。</p>
+        </details>`,
+      'retired-scrimmage': `
+        <strong>引退した先輩との紅白戦</strong>：現役選手全員が、現在行っている個別練習の経験値を中アップ。「秘策の伝授」が発生すると、1～3人が青特殊能力を取得。
+        <details>
+          <summary>取得できる青特殊能力を見る</summary>
+          <ul class="ability-list">
+            <li><strong>投手：</strong>対左打者＋1、クイック＋1、牽制○、内角攻め、クロスファイヤー、緩急○、対ランナー○、要所○</li>
+            <li><strong>野手：</strong>盗塁＋1、初球○、ローボールヒッター、ハイボールヒッター、インコースヒッター、アウトコースヒッター</li>
+            <li><strong>守備位置限定：</strong>高速チャージ（一・三塁手のみ）、フレーミング＋1（捕手のみ）</li>
+          </ul>
+          <p class="ability-list">秘策の伝授が発生せず、練習経験値アップだけで終わる場合もあります。</p>
+        </details>`,
+      world: `
+        <strong>高校日本代表（世界大会）の選出と結果</strong>：8/27に条件を満たす選手から最大3人が選出され、9/6に出場結果に応じて基礎能力・青特・金特を取得。選出選手はスカウト評価も大幅アップ。誰も選ばれなければ全員の練習効率が中アップ（4倍）。
+        <details>
+          <summary>日本代表へ選ばれる前提条件を見る</summary>
+          <p class="ability-list">次のいずれかを満たす選手が候補。留学生は対象外。</p>
+          <ul class="ability-list">
+            <li>★450以上</li>
+            <li>★400～449の投手：球速156km/h以上、総変化量12以上、コントロールSのいずれか</li>
+            <li>★400～449の野手：野手能力のいずれかがS</li>
+            <li>直前の夏甲子園で防御率2.00未満かつ投球回36回以上</li>
+            <li>直前の夏甲子園で本塁打5本以上、打点10以上、安打10本以上かつ打率.500以上、盗塁6個以上のいずれか</li>
+          </ul>
+        </details>
+        <details>
+          <summary>9/6の結果で取得できる主な能力を見る</summary>
+          <ul class="ability-list">
+            <li><strong>チームへの効果：</strong>代表選手がいる場合は、1～4人が「超ノリノリ」になる、数人の練習効率が中アップ（4倍）、変化なし、のいずれか。誰も派遣していない場合は数人のテンションがアップ</li>
+            <li><strong>大会MVP・投手：</strong>球速＋3、コントロール・スタミナ＋7、総変化量＋2。「強心臓」「怪物球威」「ドクターK」「精密機械」「変幻自在」から金特1つ、人気者、国際大会○</li>
+            <li><strong>大会MVP・野手：</strong>弾道以外の全能力＋7。「勝負師」「電光石火」「安打製造機」「アーチスト」「魔術師」から金特1つ、人気者、国際大会○</li>
+            <li><strong>大会ベストナイン・投手：</strong>球速＋2、コントロール・スタミナ＋4、総変化量＋1。対ピンチA、重い球、奪三振、低め○、緩急○から1つ、国際大会○</li>
+            <li><strong>大会ベストナイン・野手：</strong>弾道以外の全能力＋4。チャンスA、盗塁A、アベレージヒッター、パワーヒッター、守備職人から1つ、国際大会○</li>
+            <li><strong>個人タイトル：</strong>首位打者＝安打製造機、最多本塁打＝アーチスト、最多盗塁＝電光石火、最多打点＝勝負師、最優秀守備＝魔術師、最優秀防御率＝強心臓、最優秀救援＝威圧感。各タイトルで国際大会○も取得</li>
+            <li><strong>そのほか：</strong>ミート・パワー・走力・守備力・スタミナ等の上昇、チャンス／走塁／盗塁／キャッチャー／対ピンチのBまたはA化、守備職人、代打○、奪三振など</li>
+          </ul>
+        </details>`,
+      graduate: `
+        <strong>プロ入り卒業生の指導</strong>：全員の育成効果に加え、登場した卒業生が所持する特殊能力を現役選手が取得する場合がある。春甲子園滞在中は対象外。
+        <details>
+          <summary>発生する効果を見る</summary>
+          <ul class="ability-list">
+            <li>全員の現在行っている個別練習の経験値が中アップ＋数人のテンションアップ＋数人の疲れが少し回復（特能取得なしの場合と、特能取得ありの場合がある）</li>
+            <li>全員の現在行っている個別練習の経験値が中アップ＋全員がおまかせで成長＋特能取得</li>
+            <li>固定の青特一覧はなく、指導する卒業生の所持能力によって候補が変化</li>
+            <li>確認例：チャンスAを持つ卒業生の指導で「チャンス＋1」を取得</li>
+            <li>金特を継承した報告もあるが、対象能力や条件は未確定</li>
+          </ul>
+        </details>`
+    };
+
+    document.querySelectorAll('[data-event-details]').forEach((cell) => {
+      cell.innerHTML = eventDetails[cell.dataset.eventDetails];
+      if (cell.dataset.continuationNote === 'true') {
+        cell.insertAdjacentHTML('beforeend', '<div class="ability-list">※3年モード終了後は通常モードへの継続が必要</div>');
+      }
+    });
+
+    const conditionDetails = {
+      white: 'この期間内に<strong>白マスへ止まる</strong>と低確率で発生。「練習こそ大事」を選んだ場合に練習効率が上がる。',
+      special: 'この期間内に<strong>青マスへ止まる</strong>と低確率で発生。赤特持ちの在籍は発生条件ではないが、対象能力がなければ赤特消去・ランク改善は得られない。',
+      interviewSummer: '<strong>夏の地方大会で優勝し、夏の甲子園出場が決まった後</strong>に、この期間内の青マスへ止まると低確率で発生。出場決定前および敗退後は対象外。',
+      interviewSpring: '<strong>選抜（春の甲子園）への出場が決まった後</strong>に、この期間内の青マスへ止まると低確率で発生。出場校に選ばれなかった年は発生しない。',
+      training: '<strong>選択県の夏・冬・春休み期間中</strong>に青マスへ止まると抽選候補。大会出場・敗退は不要。<span class="caution">休暇全日での発生は未検証</span>で、青マスに止まっても必ず起きるわけではない。',
+      'retired-scrimmage': '<strong>最後の夏大会が終わり、3年生が引退した後</strong>から9/7までに青マスへ止まると抽選候補。地方大会敗退後・甲子園優勝後のどちらでも発生確認済み。',
+      graduate: '<strong>過年度にプロ野球選手として卒業したOBがいる</strong>状態で、この期間内の青マスへ止まると低確率で発生。春の甲子園出場決定済みでも大会滞在前なら候補だが、甲子園滞在中は対象外。',
+      ticket: '<strong>1年目限定。</strong>この期間内の日付マスへちょうど止まる（マス色不問）。',
+      summerLoss: '<strong>夏の地方大会または夏の甲子園ですでに敗退している</strong>状態で、この地域別日付のマスへちょうど止まる。通過した場合は発生しない。',
+      christmas: '<strong>12/24の日付マスへちょうど止まる</strong>。通過した場合は発生せず、止まった後の結果はランダム。',
+      february: '<strong>2月最終日の日付マスへちょうど止まる</strong>。通過した場合は特訓マスが出現しない。',
+      april: '<strong>4/1の日付マスへちょうど止まる</strong>。通過しただけでは練習効率アップは得られない。',
+      world: '<strong>8/27に到達すると選出が自動発生</strong>し、選出された場合は9/6に結果が発表される。日付マスへ止まる必要はない。候補選手がいなくても、未選出時の練習効率アップが発生する。'
+    };
+
+    document.querySelectorAll('td.condition').forEach((cell) => {
+      const row = cell.closest('tr');
+      const date = row.querySelector('.date')?.textContent.trim() || '';
+      const eventCell = row.querySelector('[data-event-details]');
+      let key = '';
+
+      if (eventCell) {
+        const type = eventCell.dataset.eventDetails;
+        if (type === 'interview') key = date.startsWith('2/') ? 'interviewSpring' : 'interviewSummer';
+        else key = type;
+      } else if (cell.querySelector('.tag-white')) key = 'white';
+      else if (row.textContent.includes('器材お楽しみ交換券')) key = 'ticket';
+      else if (row.textContent.includes('夏大会敗退後')) key = 'summerLoss';
+      else if (date === '12/24') key = 'christmas';
+      else if (date === '2/28' || date === '2/29') key = 'february';
+      else if (date === '4/1') key = 'april';
+
+      if (key && conditionDetails[key]) {
+        const dateTag = cell.querySelector('.tag-stop');
+        if (dateTag && key === 'world') dateTag.textContent = '日付到達（停止不要）';
+        if (dateTag && ['ticket', 'summerLoss', 'christmas', 'february', 'april'].includes(key)) dateTag.textContent = '日付マスに停止';
+        cell.insertAdjacentHTML('beforeend', `<span class="condition-text">${conditionDetails[key]}</span>`);
+      }
+    });
+
+    document.querySelectorAll('tbody tr').forEach((row) => {
+      const isBluePriority = Boolean(row.querySelector('.tag-blue'));
+      row.classList.add(isBluePriority ? 'blue-priority' : 'other-period');
+    });
+
+    function getPattern(prefecture) {
+      if (aomoriAkita.has(prefecture)) return patterns.aomoriAkita;
+      if (northern.has(prefecture)) return patterns.northern;
+      return patterns.standard;
+    }
+
+    function updateSchedule() {
+      const prefecture = prefectureSelect.value;
+      const pattern = getPattern(prefecture);
+
+      document.querySelectorAll('[data-date-key="summer"]').forEach((cell) => {
+        cell.textContent = pattern.summer;
+      });
+      document.querySelectorAll('[data-date-key="summer-third"]').forEach((cell) => {
+        cell.textContent = pattern.summerThird;
+      });
+      document.querySelectorAll('[data-date-key="summer-special"]').forEach((cell) => {
+        cell.textContent = pattern.summerSpecial;
+      });
+      document.querySelectorAll('[data-date-key="winter"]').forEach((cell) => {
+        cell.textContent = `${pattern.winterStart}～翌年${pattern.winterEnd}`;
+      });
+
+      regionSummary.textContent = `${prefecture}：${pattern.label}｜夏休み ${pattern.summer}｜冬休み ${pattern.winterStart}～翌年${pattern.winterEnd}｜敗退後特訓 ${pattern.summerSpecial}`;
+      localStorage.setItem('eikan-prefecture', prefecture);
+    }
+
+    const savedPrefecture = localStorage.getItem('eikan-prefecture');
+    if (savedPrefecture && [...prefectureSelect.options].some((option) => option.value === savedPrefecture)) {
+      prefectureSelect.value = savedPrefecture;
+    }
+
+    prefectureSelect.addEventListener('change', updateSchedule);
+    updateSchedule();
+  </script>
+</body>
+</html>
