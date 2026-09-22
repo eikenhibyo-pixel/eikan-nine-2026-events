@@ -25,10 +25,12 @@ td{vertical-align:top;padding:12px;border-right:1px solid var(--line);border-bot
 .red-abilities{display:block;margin-top:2px;color:#b42318;font-size:11px;line-height:1.45}
 .pitch-details{display:block;margin-top:4px;color:#42307d;font-size:11px;line-height:1.45}
 .legend{display:flex;align-items:center;gap:12px;padding:0 28px 12px;color:var(--muted);font-size:12px;flex-wrap:wrap} .legend-item{display:inline-flex;align-items:center;gap:5px} .dot{width:11px;height:11px;border-radius:3px;display:inline-block} .dot.low{background:#2e9b55} .dot.medium{background:#dc9a13} .dot.high{background:#d85249} .dot.miracle{background:#8b5cf6}
+.tier-guide{margin:8px 28px 18px} .tier-guide h2{font-size:17px;margin:0 0 10px} .tier-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px} .tier-card{display:flex;flex-direction:column;gap:3px;background:#fff;border:1px solid var(--line);border-left:5px solid;padding:10px 12px;border-radius:8px;font-size:12px} .tier-card.low{border-left-color:#2e9b55} .tier-card.medium{border-left-color:#dc9a13} .tier-card.high{border-left-color:#d85249} .tier-card.miracle{border-left-color:#8b5cf6} .tier-heading{display:flex;align-items:center;gap:6px;font-size:14px} .tier-card b{margin-top:3px;color:#344054} .tier-guide p{margin:8px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
 footer{padding:0 28px 30px;color:var(--muted);font-size:12px;line-height:1.7}
 @media(max-width:820px){
  header{padding:20px 16px} h1{font-size:21px;line-height:1.35} header p{font-size:13px;margin-top:6px}
  .summary{padding:12px 10px 4px;gap:7px} .pill{font-size:12px;padding:6px 9px} .legend{padding:3px 12px 8px;gap:9px;font-size:11px}
+ .tier-guide{margin:8px 10px 14px} .tier-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px} .tier-card{padding:9px;font-size:11px}
  .note{margin:10px 10px 16px;padding:10px 12px;font-size:12px}
  .evidence-note{margin:-5px 10px 16px;padding:9px 11px;font-size:11px}
  .wrap{margin:0 8px 20px;overflow:visible;border:0;background:transparent;box-shadow:none}
@@ -42,7 +44,7 @@ footer{padding:0 28px 30px;color:var(--muted);font-size:12px;line-height:1.7}
  .combined .catcher-stage{grid-column:2} .catcher-stage{grid-template-columns:72px minmax(0,1fr);gap:7px;padding:10px 8px} .middle-stage{border-left:4px solid #55a873} .strong-stage{border-left:4px solid #9169bd}
  footer{padding:0 14px 24px;font-size:11px}
 }
-@media(max-width:390px){td{grid-template-columns:72px minmax(0,1fr);gap:7px;padding:9px 8px} .combined{grid-template-columns:72px minmax(0,1fr)} .pill{font-size:11px}}
+@media(max-width:390px){td{grid-template-columns:72px minmax(0,1fr);gap:7px;padding:9px 8px} .combined{grid-template-columns:72px minmax(0,1fr)} .pill{font-size:11px} .tier-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -52,8 +54,8 @@ footer{padding:0 28px 30px;color:var(--muted);font-size:12px;line-height:1.7}
 </nav>
 <header><h1>1年目夏・高校日本代表投手候補</h1><p>県別リセマラ確率 ＋ 中堅／強豪の捕手スカウト候補</p></header>
 <section class="summary"><span class="pill">候補投手 32人</span><span class="pill">候補県 17県</span><span class="pill">捕手B以上 16人</span><span class="pill">標準は県大会決勝</span></section>
-<div class="legend"><span>育成難度</span><span class="legend-item"><i class="dot low"></i>現実圏</span><span class="legend-item"><i class="dot medium"></i>挑戦圏</span><span class="legend-item"><i class="dot high"></i>超上振れ</span><span class="legend-item"><i class="dot miracle"></i>ミラクル</span></div>
-<div class="note"><strong>候補の見方：</strong>★は選手の総合評価です。候補は、夏までに★450、または★400と指定の投手能力を同時に満たせる余地がある選手です。球速160km/hは現行の選考条件として調査中です。現実圏は県大会決勝までで注目試合なし、挑戦圏は甲子園２試合までで注目試合なし、超上振れは甲子園４試合と注目３試合、ミラクルは甲子園４試合と注目５試合を想定します。順位の確率は選手が入学時に現れる確率で、育成の成功率ではありません。</div>
+<section class="tier-guide" aria-label="育成難度の目安"><h2>育成難度と勝ち残りの目安</h2><div class="tier-grid"><div class="tier-card low"><div class="tier-heading"><i class="dot low"></i><strong>現実圏</strong></div><span>県大会決勝まで</span><span>注目０試合</span><b>育成XP上限 74,212</b></div><div class="tier-card medium"><div class="tier-heading"><i class="dot medium"></i><strong>挑戦圏</strong></div><span>甲子園２回戦敗退まで</span><span>注目０試合</span><b>育成XP上限 89,668</b></div><div class="tier-card high"><div class="tier-heading"><i class="dot high"></i><strong>超上振れ</strong></div><span>甲子園４回戦敗退まで</span><span>注目３試合</span><b>育成XP上限 125,860</b></div><div class="tier-card miracle"><div class="tier-heading"><i class="dot miracle"></i><strong>ミラクル</strong></div><span>甲子園４回戦敗退まで</span><span>注目５試合</span><b>育成XP上限 136,660</b></div></div><p>XP上限は県大会５試合の県が基準。６試合の県は各3,972 XP増えます。既にサブポジ加点が上限の一部投手は、さらに3,000 XPを能力育成へ回せます。候補判定はこの予算と必要XPを比べた数値上の目安です。</p></section>
+<div class="note"><strong>候補の見方：</strong>★は選手の総合評価です。候補は、夏までに★450、または★400と指定の投手能力を同時に満たせる余地がある選手です。球速160km/hは現行の選考条件として調査中です。順位の確率は選手が入学時に現れる確率で、育成の成功率ではありません。</div>
 <div class="evidence-note"><strong>計算の前提：</strong>１試合あたりの投球指示は、計算上は通常試合３回、注目試合15回です。注目試合は甲子園の試合から数えます。実際の目安は１試合あたり通常３～６回、注目８～15回で、相手や試合展開によって変わります。注目に選ばれただけで上限まで得られるわけではありません。投手を注目にする運用には失点リスクと操作の負担があるため、上振れの数字は到達の上限目安です。投手に野手の守備位置を覚えさせる加点は、未確認の選手では暫定値です。一部の候補は新しい特殊能力を１つ取得できる想定も含みます。</div>
 <div class="wrap"><table>
 <thead><tr><th>順位</th><th>開始県</th><th>当選確率</th><th>候補投手と入学時能力</th><th>捕手B以上（上：中堅／下：強豪追加）</th></tr></thead>
