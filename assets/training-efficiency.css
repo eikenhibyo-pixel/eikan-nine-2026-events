@@ -1,0 +1,53 @@
+/* Isolate this comparison from the candidate table's mobile card layout. */
+#training-efficiency .xp-scroll {
+  overflow-x: auto;
+  margin: 0 14px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+#training-efficiency .xp-scroll:focus-visible {
+  outline: 3px solid #245f91;
+  outline-offset: 2px;
+}
+#training-efficiency table {
+  display: table;
+  width: 100%;
+  min-width: 720px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+#training-efficiency caption {
+  padding: 9px;
+  text-align: left;
+  white-space: normal;
+  font-weight: 700;
+}
+#training-efficiency thead { display: table-header-group; }
+#training-efficiency tbody { display: table-row-group; }
+#training-efficiency tr {
+  display: table-row;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#training-efficiency th,
+#training-efficiency td {
+  display: table-cell;
+  padding: 8px 10px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+}
+#training-efficiency th:first-child { text-align: left; }
+#training-efficiency tbody th {
+  position: static;
+  background: #f8fafc;
+  color: var(--ink);
+}
+#training-efficiency td::before { display: none; }
+#training-efficiency small {
+  color: inherit;
+  font-weight: normal;
+}

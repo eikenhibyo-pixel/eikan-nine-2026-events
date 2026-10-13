@@ -8,10 +8,27 @@ from pathlib import Path
 
 
 STYLESHEET = '<link rel="stylesheet" href="../assets/site-nav.css">'
+TRAINING_STYLESHEET = '<link rel="stylesheet" href="../assets/training-efficiency.css">'
+TRAINING_TEMPLATE = Path(__file__).resolve().parent / "templates" / "training-efficiency.html"
 NAVIGATION = """<nav class="site-nav" aria-label="資料ナビゲーション">
   <a class="site-brand" href="../">EIKAN HUB</a>
   <div class="site-links"><a href="../calendar/">カレンダー</a><a class="is-current" href="./">日本代表投手</a></div>
 </nav>"""
+
+
+def prepare_html(html: str) -> str:
+    for stylesheet in (STYLESHEET, TRAINING_STYLESHEET):
+        if stylesheet not in html:
+            html = html.replace("</title>", f"</title>\n{stylesheet}", 1)
+    if NAVIGATION not in html:
+        html = html.replace("<body>", f"<body>\n{NAVIGATION}", 1)
+    # Keep the reference outside the candidate table and its filtering logic.
+    # The guard also allows an already imported page to be imported again.
+    if 'id="training-efficiency"' not in html:
+        if "<footer>" not in html:
+            raise ValueError("world-team report has no footer insertion point")
+        html = html.replace("<footer>", TRAINING_TEMPLATE.read_text(encoding="utf-8") + "\n<footer>", 1)
+    return html
 
 
 def main() -> None:
@@ -33,11 +50,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    html = args.source.read_text(encoding="utf-8")
-    if STYLESHEET not in html:
-        html = html.replace("</title>", f"</title>\n{STYLESHEET}", 1)
-    if NAVIGATION not in html:
-        html = html.replace("<body>", f"<body>\n{NAVIGATION}", 1)
+    html = prepare_html(args.source.read_text(encoding="utf-8"))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(html, encoding="utf-8")
     print(f"imported={args.source} output={args.output}")

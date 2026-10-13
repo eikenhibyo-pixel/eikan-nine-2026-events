@@ -18,3 +18,7 @@ GitHub Pagesで個人用資料をまとめる静的サイト。
 ```bash
 python3 scripts/import_world_team.py
 ```
+
+取り込み時に `scripts/templates/training-efficiency.html` の育成効率比較を、候補一覧の下へ閉じた折りたたみとして追加する。表の更新はこのテンプレートで行い、取り込みを再実行する。表示用CSSは `assets/training-efficiency.css`。
+
+検証: `python3 -m pytest -q tests/test_import_world_team.py`。ブラウザー検証は `python3 -m pytest -q tests/test_training_layout.py`（Playwright/Chromiumが必要）。
